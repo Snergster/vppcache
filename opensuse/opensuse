@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/docker pull snergster/vpp-opensuse
+/usr/bin/docker build -t registry.fdiopoc.net/vpp/opensuse /root/vppcache/opensuse/
+/usr/bin/docker push registry.fdiopoc.net/vpp/opensuse
+

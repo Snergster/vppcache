@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/docker pull snergster/vpp-centos
+/usr/bin/docker build -t registry.fdiopoc.net/vpp/centos /root/vppcache/centos/
+/usr/bin/docker push registry.fdiopoc.net/vpp/centos
+
