@@ -17,19 +17,19 @@ job "cachebuild" {
     task "ubuntu16" {
       driver = "exec"
       config {
-        command = "docker pull snergster/vpp-ubuntu16 && docker build -t registry.fdiopoc.net/vpp/ubuntu16 /root/vpp-ubuntu/ && docker push registry.fdiopoc.net/vpp/ubuntu16"
+        command = "/usr/bin/sudo /usr/bin/docker pull snergster/vpp-ubuntu16 && /usr/bin/sudo /usr/bin/docker build -t registry.fdiopoc.net/vpp/ubuntu16 /root/vpp-ubuntu/ && /usr/bin/sudo /usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu16"
       }
     },
     task "centos" {
       driver = "exec"
       config {
-        command = "docker pull snergster/vpp-centos && docker build -t registry.fdiopoc.net/vpp/centos /root/vpp-centos/ && docker push registry.fdiopoc.net/vpp/centos"
+        command = "/usr/bin/sudo /usr/bin/docker pull snergster/vpp-centos && /usr/bin/sudo /usr/bin/docker build -t registry.fdiopoc.net/vpp/centos /root/vpp-centos/ && /usr/bin/sudo /usr/bin/docker push registry.fdiopoc.net/vpp/centos"
       }
     },
     task "opensuse" {
       driver = "exec"
       config {
-        command = "docker pull snergster/opensuse && docker build -t registry.fdiopoc.net/vpp/opensuse /root/opensuse/ && docker push registry.fdiopoc.net/vpp/opensuse"
+        command = "/usr/bin/sudo /usr/bin/docker pull snergster/opensuse && /usr/bin/sudo /usr/bin/docker build -t registry.fdiopoc.net/vpp/opensuse /root/opensuse/ && /usr/bin/sudo /usr/bin/docker push registry.fdiopoc.net/vpp/opensuse"
       }
     }
   }
