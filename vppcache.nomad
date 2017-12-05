@@ -1,4 +1,4 @@
-job "cachebuild" {
+job "autocachebuild" {
   datacenters = ["yul1"]
 
   type = "batch"
