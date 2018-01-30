@@ -2,7 +2,7 @@
 /usr/bin/docker pull snergster/vpp-ubuntu16
 /usr/bin/docker build --force-rm --no-cache --pull -t registry.fdiopoc.net/vpp/ubuntu16 /root/vppcache/ubuntu16/
 /usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu16
-/usr/bin/docker image tag snergster/vpp-ubuntu16 registry.fdiopoc.net/vpp/nocache
+/usr/bin/docker image tag snergster/vpp-ubuntu16 registry.fdiopoc.net/vpp/ubuntu16/nocache
 /usr/bin/docker push registry.fdiopoc.net/vpp/nocache
 /usr/bin/docker pull snergster/vpp-opensuse
 /usr/bin/docker build --force-rm --no-cache --pull -t registry.fdiopoc.net/vpp/opensuse /root/vppcache/opensuse/
