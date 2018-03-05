@@ -13,7 +13,7 @@ RUN apt-get install -y -qq \
         bash \
         bash-completion \
         bc \
-        biosdevname \
+#        biosdevname \
         ca-certificates \
         cloud-init \
         cron \
