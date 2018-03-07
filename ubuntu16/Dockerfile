@@ -6,4 +6,5 @@ RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
 RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
 ENV VPP_ZOMBIE_NOCHECK=1
+RUN mkdir -p /run/shm
 
