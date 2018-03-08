@@ -91,7 +91,7 @@ RUN zypper --non-interactive update && \
         libopenssl-devel \
         && zypper --non-interactive clean
 
-RUN zypper install -y https://download.opensuse.org/tumbleweed/repo/oss/suse/x86_64/nasm-2.13.01-2.2.x86_64.rpm
+RUN zypper install -y https://download.opensuse.org/tumbleweed/repo/oss/suse/x86_64/nasm-2.13.02-1.1.x86_64.rpm
 
 #python resources and libraries
 RUN zypper --non-interactive update && \
