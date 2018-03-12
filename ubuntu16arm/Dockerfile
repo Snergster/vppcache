@@ -59,7 +59,7 @@ RUN apt-get install -y -qq \
         # socat \
         # software-properties-common \
         # ssh \
-        # sudo \
+        sudo \
         # sysstat \
         # tar \
         # tcpdump \
