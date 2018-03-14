@@ -16,5 +16,6 @@ wget -O /tmp/opensuse-leap-15.docker.tar.xz https://download.opensuse.org/reposi
 /usr/bin/docker load -i /tmp/opensuse-leap-15.docker.tar.xz
 /usr/bin/docker build --force-rm --no-cache -t registry.fdiopoc.net/vpp/opensuse15 /root/vppcache/opensuse15
 /usr/bin/docker push registry.fdiopoc.net/vpp/opensuse15
-/usr/bin/docker build --force-rm --no-cache --pull -t snergster/ubuntu18 /root/vppcache/vpp-ubuntu18/
+/usr/bin/docker pull snergster/vpp-ubuntu18
 /usr/bin/docker build --force-rm --no-cache -t registry.fdiopoc.net/vpp/ubuntu18 /root/vppcache/ubuntu18/
+/usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu18
