@@ -8,8 +8,7 @@ LABEL Version="3.0"
 # Setup the environment
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN apt-get install -y -qq \
+RUN apt-get update &&apt-get install -y -qq \
         bash \
         bash-completion \
         bc \
@@ -23,7 +22,7 @@ RUN apt-get install -y -qq \
         ethstatus \
         file \
         fio \
-        htop 
+        htop \
         #\
         # ifenslave \
         # ioping \
@@ -50,7 +49,7 @@ RUN apt-get install -y -qq \
         # ntpdate \
         # open-iscsi \
         # python-apt \
-        # python-pip \
+        python-pip \
         # python-yaml \
         # rsync \
         # rsyslog \
@@ -73,7 +72,7 @@ RUN apt-get install -y -qq \
         # default-jre-headless \
         # chrpath \
         # nasm \
-        # && rm -rf /var/lib/apt/lists/*
+        && rm -rf /var/lib/apt/lists/*
 
 RUN add-apt-repository -y ppa:openjdk-r/ppa
 
@@ -159,8 +158,8 @@ RUN locale-gen en_US.UTF-8 && \
     dpkg-reconfigure locales
 
 # Fix permissions
-RUN chown root:syslog /var/log \
-    && chmod 755 /etc/default
+#RUN chown root:syslog /var/log \
+#    && chmod 755 /etc/default
 
 RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
 ENV CCACHE_DIR=/var/ccache
