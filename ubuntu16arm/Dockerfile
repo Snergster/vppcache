@@ -68,7 +68,7 @@ RUN apt-get update &&apt-get install -y -qq \
         # uuid-runtime \
         # vim \
         # wget \
-        # apt-transport-https \
+        apt-transport-https \
         # default-jre-headless \
         # chrpath \
         # nasm \
