@@ -80,6 +80,11 @@ RUN add-apt-repository -y ppa:openjdk-r/ppa
 
 RUN apt-get -q update && \
     apt-get install -y -qq \
+        default-jre-headless \
+        default-jdk-headless \
+        clang-format-6.0 \
+        dkms \
+        libcurl4 \
         unzip \
         xz-utils \
         puppet \
