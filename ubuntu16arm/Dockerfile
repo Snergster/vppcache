@@ -7,6 +7,8 @@ LABEL Version="3.0"
 
 # Setup the environment
 ENV DEBIAN_FRONTEND=noninteractive
+ENV MAKE_PARALLEL_FLAGS -j 4
+ENV DOCKER_TEST=True
 
 RUN apt-get update &&apt-get install -y -qq \
         bash \
