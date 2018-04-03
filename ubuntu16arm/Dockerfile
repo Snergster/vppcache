@@ -9,6 +9,7 @@ LABEL Version="3.0"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MAKE_PARALLEL_FLAGS -j 4
 ENV DOCKER_TEST=True
+ENV VPP_ZOMBIE_NOCHECK=1
 
 RUN apt-get update &&apt-get install -y -qq \
         bash \
@@ -155,6 +156,7 @@ RUN apt-get -q update && \
         clang-format \
         libboost-all-dev \
         ruby-dev \
+        iperf3 \
         && rm -rf /var/lib/apt/lists/*
 
 
