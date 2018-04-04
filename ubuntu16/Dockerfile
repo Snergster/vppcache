@@ -11,6 +11,8 @@ RUN wget -O /w/Downloads/dpdk-17.11.tar.xz http://fast.dpdk.org/rel/dpdk-17.11.t
 RUN wget -O /w/Downloads/v0.47.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.47.tar.gz
 RUN wget -O /w/Downloads/v0.48.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.48.tar.gz
 ENV DPDK_DOWNLOAD_DIR=/w/Downloads
+RUN mkdir -p /var/cache/vpp/python
+ENV VPP_PYTHON_PREFIX=/var/cache/vpp/python
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
 ENV VPP_ZOMBIE_NOCHECK=1
 RUN mkdir -p /run/shm
