@@ -257,7 +257,14 @@ RUN zypper --non-interactive update && \
     zypper --non-interactive install -t pattern devel_basis \
     && zypper --non-interactive clean
 
+RUN zypper addrepo -G https://download.opensuse.org/repositories/devel:libraries:c_c++/openSUSE_Leap_15.0/devel:libraries:c_c++.repo
+RUN zypper addrepo -G -f -c http://download.opensuse.org/repositories/Java:/bootstrap/openSUSE_Leap_15.0/ java
 
+RUN zypper --non-interactive update && \
+    zypper --non-interactive install gcc6 \
+    libboost_headers-devel \
+    libboost_thread-devel \
+    && zypper --non-interactive clean
 
 RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
 ENV CCACHE_DIR=/var/ccache
