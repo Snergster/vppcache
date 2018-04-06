@@ -1,9 +1,9 @@
-FROM opensuse-leap-15.0:current
+FROM opensuse/leap:leap-15
 
 MAINTAINER Ed Kern <ejk@cisco.com>
 LABEL Description="VPP opensuse baseline"
 LABEL Vendor="cisco.com"
-LABEL Version="1.0"
+LABEL Version="1.5"
 
 
 # Setup the environment
