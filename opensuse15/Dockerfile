@@ -251,6 +251,7 @@ RUN zypper --non-interactive update && \
     ruby-devel \
     zlib-devel \
     rpm-build \
+    zile \
     && zypper --non-interactive clean
 
 RUN zypper --non-interactive update && \
