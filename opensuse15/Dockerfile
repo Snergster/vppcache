@@ -131,7 +131,6 @@ RUN zypper --non-interactive update && \
     gcc-c++ \
     cmake \
     make \
-    gcc6 \
     libstdc++-devel \
     ruby-devel \
     && zypper --non-interactive clean
