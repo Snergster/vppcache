@@ -191,7 +191,6 @@ RUN zypper --non-interactive update && \
     source-highlight python-sphinx libxml2 libffi-devel python-cffi \
     python-pyparsing libstdc++6 python-sphinx_rtd_theme \
     glibc-devel-static \
-    libclang \
     llvm-clang \
     java-1_8_0-openjdk-devel \
     yum-utils \
@@ -252,7 +251,6 @@ RUN zypper --non-interactive update && \
     ruby-devel \
     zlib-devel \
     rpm-build \
-    boost_1_61-devel \
     && zypper --non-interactive clean
 
 RUN zypper --non-interactive update && \
