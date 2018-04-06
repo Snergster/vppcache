@@ -67,7 +67,6 @@ RUN zypper --non-interactive update && \
         unzip \
         zip \
         xz \
-        puppet \
         git \
         git-review \
         perl-XML-XPath \
