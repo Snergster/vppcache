@@ -1,6 +1,5 @@
 FROM opensuse-leap-15.0:current
 
-FROM opensuse:42.3
 MAINTAINER Ed Kern <ejk@cisco.com>
 LABEL Description="VPP opensuse baseline"
 LABEL Vendor="cisco.com"
