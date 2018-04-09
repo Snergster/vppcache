@@ -2,7 +2,6 @@ FROM snergster/vpp-ubuntu18:latest
 
 RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804
 RUN apt-get purge -y default-jre-headless
-RUN apt-get purge -y default-jdk-headless
 ADD files/default-jdk-headless_1.8-59ubuntu2_amd64.deb /tmp/default-jdk-headless_1.8-59ubuntu2_amd64.deb
 ADD files/default-jre-headless_1.8-59ubuntu2_amd64.deb /tmp/default-jre-headless_1.8-59ubuntu2_amd64.deb
 RUN apt-get install -y /tmp/default-jre-headless_1.8-59ubuntu2_amd64.deb
