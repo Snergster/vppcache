@@ -265,6 +265,7 @@ RUN zypper --non-interactive update && \
     zypper --non-interactive install gcc6 \
     libboost_headers-devel \
     libboost_thread-devel \
+    mbedtls-devel \
     && zypper --non-interactive clean
 
 RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
