@@ -1,6 +1,6 @@
 #FROM snergster/vpp-ubuntu18:latest
 FROM goodubuntu18:latest
-RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804
+RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804 && mkdir -p /home/jenkins
 RUN apt-get update -qq && apt-get install -y apt-utils
 RUN apt-get purge -y default-jre-headless openjdk-9-jdk-headless openjdk-9-jre-headless
 

@@ -168,7 +168,7 @@ RUN locale-gen en_US.UTF-8 && \
 #RUN chown root:syslog /var/log \
 #    && chmod 755 /etc/default
 
-RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
+RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache && mkdir /home/jenkins
 ENV CCACHE_DIR=/var/ccache
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 

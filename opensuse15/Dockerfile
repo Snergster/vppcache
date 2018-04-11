@@ -268,7 +268,7 @@ RUN zypper --non-interactive update && \
     mbedtls-devel \
     && zypper --non-interactive clean
 
-RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
+RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache && mkdir /home/jenkins
 ENV CCACHE_DIR=/var/ccache
 ENV CCACHE_READONLY=true
 ENV MAKE_PARALLEL_FLAGS -j 4
