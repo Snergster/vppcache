@@ -252,6 +252,7 @@ RUN zypper --non-interactive update && \
     zlib-devel \
     rpm-build \
     zile \
+    crudini \
     && zypper --non-interactive clean
 
 RUN zypper --non-interactive update && \
@@ -277,7 +278,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 #RUN gem install rake
 
 RUN gem install --no-format-executable package_cloud facter
-
+RUN crudini --set /usr/lib/os-release '' ID '"opensuse"'
 
 RUN mkdir -p /w/workspace
 RUN mkdir -p /w/Downloads
