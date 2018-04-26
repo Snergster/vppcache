@@ -276,7 +276,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
 #RUN gem install rake
 
-RUN gem install package_cloud
+RUN gem install --no-format-executable package_cloud facter
 
 
 RUN mkdir -p /w/workspace
