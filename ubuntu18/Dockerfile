@@ -1,5 +1,10 @@
-#FROM snergster/vpp-ubuntu18:latest
-FROM goodubuntu18:latest
+FROM snergster/vpp-ubuntu18:latest
+#FROM goodubuntu18:latest
+
+ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
+RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms || true
+RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
+
 RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804 && mkdir -p /home/jenkins
 RUN apt-get update -qq && apt-get install -y apt-utils
 RUN apt-get purge -y default-jre-headless openjdk-9-jdk-headless openjdk-9-jre-headless || true
