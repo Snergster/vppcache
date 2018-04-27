@@ -3,7 +3,7 @@ FROM snergster/vpp-ubuntu18:latest
 
 ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
 RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms || true
-RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
+RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms || true
 
 RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804 && mkdir -p /home/jenkins
 RUN apt-get update -qq && apt-get install -y apt-utils
