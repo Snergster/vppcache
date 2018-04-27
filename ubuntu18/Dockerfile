@@ -2,7 +2,7 @@
 FROM goodubuntu18:latest
 RUN mkdir -p /w/workspace/vpp-verify-master-ubuntu1804 && mkdir -p /home/jenkins
 RUN apt-get update -qq && apt-get install -y apt-utils
-RUN apt-get purge -y default-jre-headless openjdk-9-jdk-headless openjdk-9-jre-headless
+RUN apt-get purge -y default-jre-headless openjdk-9-jdk-headless openjdk-9-jre-headless || true
 
 ADD files/default-jdk-headless_1.8-59ubuntu2_amd64.deb /tmp/default-jdk-headless_1.8-59ubuntu2_amd64.deb
 ADD files/default-jre-headless_1.8-59ubuntu2_amd64.deb /tmp/default-jre-headless_1.8-59ubuntu2_amd64.deb
