@@ -154,11 +154,14 @@ RUN apt-get -q update && \
         llvm \
         clang \
         clang-format \
+        clang-5.0 \
         libboost-all-dev \
         ruby-dev \
         iperf3 \
         && rm -rf /var/lib/apt/lists/*
 
+#Repoint clang
+RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-5.0 1000 && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 1000
 
 # Configure locales
 RUN locale-gen en_US.UTF-8 && \
