@@ -24,6 +24,7 @@ RUN add-apt-repository -y ppa:openjdk-r/ppa
 RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms \
 		bash \
 		bash-completion \
+		curl \
         default-jre-headless \
         chrpath \
         nasm \
@@ -72,6 +73,9 @@ RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms \
 
 RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-5.0 1000 && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 1000
 
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
+
 # For the docs
 RUN apt-get -q update && \
     apt-get install -y -qq \
@@ -80,6 +84,7 @@ RUN apt-get -q update && \
         python-pyparsing \
         doxygen \
         graphviz \
+        docker-ce \
         && rm -rf /var/lib/apt/lists/*
 
 # Configure locales
@@ -116,8 +121,7 @@ RUN wget -O /w/Downloads/v0.47.tar.gz http://github.com/01org/intel-ipsec-mb/arc
 RUN wget -O /w/Downloads/v0.48.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.48.tar.gz
 RUN wget -O /w/Downloads/v0.49.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.49.tar.gz
 
-
-RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
+#RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
 RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /home/jenkins
 
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
