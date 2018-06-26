@@ -90,8 +90,8 @@ RUN locale-gen en_US.UTF-8 && \
 RUN chown root:syslog /var/log \
     && chmod 755 /etc/default
 
-RUN mkdir /tmp/dumps
-RUN mkdir /workspace && mkdir -p /var/ccache && ln -s /var/ccache /tmp/ccache
+RUN mkdir -p /tmp/dumps /workspace /var/ccache && ln -s /var/ccache /tmp/ccache
+
 ENV CCACHE_DIR=/var/ccache
 ENV CCACHE_READONLY=true
 
