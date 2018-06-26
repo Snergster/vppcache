@@ -85,6 +85,8 @@ RUN apt-get -q update && \
         doxygen \
         graphviz \
         docker-ce \
+        tzdata \
+        locales \
         && rm -rf /var/lib/apt/lists/*
 
 # Configure locales
