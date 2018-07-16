@@ -14,6 +14,10 @@ ENV DPDK_DOWNLOAD_DIR=/w/Downloads
 ENV VPP_PYTHON_PREFIX=/var/cache/vpp/python
 
 ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
+ADD files/sshconfig /root/.ssh/config
+ADD files/wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/wrapdocker
+
 RUN apt update && apt install -y -qq \
 		software-properties-common \
         apt-transport-https \
@@ -73,7 +77,7 @@ RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms \
         && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
+RUN echo 'root:Csit1234' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -143,3 +147,4 @@ RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /hom
 
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
+VOLUME /var/lib/docker
