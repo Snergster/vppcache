@@ -1,4 +1,4 @@
 #!/bin/bash
 /usr/bin/docker stop csitbase || /bin/true
 /usr/bin/docker rm csitbase || /bin/true
-/usr/bin/docker run -P -p 6022:22 -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock --name csitbase registry.fdiopoc.net/vpp/ubuntu16thin
+/usr/bin/docker run -i -P -p 6022:22 -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock --name csitbase registry.fdiopoc.net/vpp/ubuntu16thin
