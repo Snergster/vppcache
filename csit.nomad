@@ -6,12 +6,8 @@ job "csitshim" {
     task "csitshim" {
       driver = "raw_exec"
       config {
-        command = "/root/vppcache/csitshim"
-        args = [""]
-      }
-      constraint {
-        attribute = "${node.class}"
-        value     = "master"
+        command = "docker"
+        args = ["run","-i","-P","-p","6022:22","-p","8080:8080","-v","/var/run/docker.sock:/var/run/docker.sock","registry.fdiopoc.net/vpp/ubuntu16thin"]
       }
       resources {
         cpu    = 100 # 100 MHz
