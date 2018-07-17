@@ -9,6 +9,10 @@ job "csitshim" {
         command = "docker"
         args = ["run","-i","-P","-p","6022:22","-p","8080:8080","-v","/var/run/docker.sock:/var/run/docker.sock","registry.fdiopoc.net/vpp/ubuntu16thin"]
       }
+      constraint {
+-        attribute = "${node.class}"
+-        value     = "master"
+      }
       resources {
         cpu    = 100 # 100 MHz
         memory = 128 # 128 MB
