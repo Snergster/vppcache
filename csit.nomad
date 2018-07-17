@@ -6,8 +6,8 @@ job "csitshim" {
     task "csitshim" {
       driver = "raw_exec"
       config {
-        command = "docker"
-        args = ["run","-d","-P","-p","6022:22","-p","8080:8080","-v","/var/run/docker.sock:/var/run/docker.sock","--name","csitbase","registry.fdiopoc.net/vpp/ubuntu16thin"]
+        command = "/root/vppcache/csitshim"
+        args = [""]
       }
       constraint {
         attribute = "${node.class}"
