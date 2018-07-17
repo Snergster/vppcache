@@ -2,7 +2,7 @@ job "csitshim" {
   datacenters = ["yul1"]
   type = "system"
   group "csitshim" {
-    count = 3
+    count = 1
     task "csitshim" {
       driver = "raw_exec"
       config {
