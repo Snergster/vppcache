@@ -1,17 +1,16 @@
-job "csitshim" {
+job "csit" {
   datacenters = ["yul1"]
   type = "system"
-  group "csitshim" {
+  group "csit" {
     count = 1
-    task "csitshim" {
+    task "csit" {
       driver = "docker"
       config {
-        args = [""]
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"
           ]
-        image = "registry.fdiopoc.net/vpp/ubuntu16thin"
-        privileged = "true"
+        image = "snergster/vpp-ubuntu16-min"
+        privileged = true
       }
       constraint {
         attribute = "${node.class}"
