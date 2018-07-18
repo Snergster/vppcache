@@ -1,6 +1,10 @@
 FROM snergster/vpp-ubuntu16
 
 ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
+ADD files/98fd.io.list /etc/apt/sources.list.d/98fd.io.list
+
+ADD files/badkey /root/.ssh/id_rsa
+
 RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms 
 RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
 RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /home/jenkins
