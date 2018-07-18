@@ -2,6 +2,12 @@ job "csit" {
   datacenters = ["yul1"]
   type = "system"
   group "csit" {
+    restart {
+      interval = "1m"
+      attempts = 3
+      delay    = "15s"
+      mode     = "delay"
+            }
     count = 1
     task "csit" {
       driver = "docker"
