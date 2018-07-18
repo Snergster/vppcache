@@ -18,10 +18,10 @@ job "csit" {
         image = "snergster/vpp-ubuntu16-min"
         privileged = true
       }
-      constraint {
-        attribute = "${node.class}"
-        value     = "master"
-      }
+#      constraint {
+#        attribute = "${node.class}"
+#        value     = "master"
+#      }
       resources {
         cpu    = 100 # 100 MHz
         memory = 128 # 128 MB
