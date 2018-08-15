@@ -191,6 +191,7 @@ RUN wget -O /w/Downloads/v0.49.tar.gz http://github.com/01org/intel-ipsec-mb/arc
 RUN gem install rake
 RUN gem install package_cloud
 RUN pip install scapy
+RUN pip install psutil
 RUN git clone https://gerrit.fd.io/r/vpp /workspace/ubuntu16 && cd /workspace/ubuntu16; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep &&rm -rf /workspace/ubuntu16 && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
 
