@@ -1,4 +1,4 @@
 #!/bin/bash
 /usr/bin/docker pull snergster/vpp-ubuntu18
-/usr/bin/docker build --force-rm --no-cache -t registry.fdiopoc.net/vpp/ubuntu18-ssh /root/vppcache/ubuntu18-ssh/
+/usr/bin/docker build --force-rm --no-cache -t registry.fdiopoc.net/vpp/ubuntu18ssh /root/vppcache/ubuntu18-ssh/
 /usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu18ssh
