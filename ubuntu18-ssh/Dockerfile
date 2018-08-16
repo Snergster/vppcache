@@ -1,4 +1,4 @@
-FROM snergster/vpp/ubuntu18
+FROM snergster/vpp-ubuntu18
 MAINTAINER Ed Kern <ejk@cisco.com>
 LABEL Description="VPP ubuntu 18 baseline and docker/ssh" 
 LABEL Vendor="cisco.com" 
