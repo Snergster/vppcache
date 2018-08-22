@@ -9,32 +9,6 @@ job "csit" {
       mode     = "delay"
             }
     count = 1
-    task "ubuntu16" {
-      driver = "docker"
-      config {
-        volumes = [
-          "/var/run/docker.sock:/var/run/docker.sock"
-          ]
-        image = "snergster/vpp-ubuntu16-min"
-        privileged = true
-      }
-#      constraint {
-#        attribute = "${node.class}"
-#        value     = "master"
-#      }
-      resources {
-        cpu    = 100 # 100 MHz
-        memory = 128 # 128 MB
-        network {
-          mbits = 10
-          port "ssh" {
-              static = 6022
-          }
-          port "docker" {
-              static = 8080
-          }
-        }
-      }
     task "ubuntu18" {
       driver = "docker"
       config {
@@ -50,6 +24,9 @@ job "csit" {
         network {
           mbits = 10
           port "ssh" {
+              static = 6022
+          }
+          port "ssh2" {
               static = 6023
           }
         }
