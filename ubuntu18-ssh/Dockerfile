@@ -7,17 +7,11 @@ LABEL Version="1.1"
 
 # Setup the environment
 ENV DEBIAN_FRONTEND=noninteractive
-ENV MAKE_PARALLEL_FLAGS -j 4
-ENV DOCKER_TEST=True
-ENV VPP_ZOMBIE_NOCHECK=1
-ENV DPDK_DOWNLOAD_DIR=/w/Downloads
-ENV VPP_PYTHON_PREFIX=/var/cache/vpp/python
 
-ADD files/sshconfig /root/.ssh/config
 ADD files/wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
-
+#docker install
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
 
@@ -42,11 +36,16 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
-#EXPOSE 8080
 
+#Need volume for sidecar docker launches
 VOLUME /var/lib/docker
+
+#ssh to listen on port 6022 in shim
+RUN echo 'Port 6022' >>/etc/ssh/sshd_config
 RUN echo 'Port 6023' >>/etc/ssh/sshd_config
 ADD files/badkeypub /root/.ssh/authorized_keys
+ADD files/sshconfig /root/.ssh/config
 
+#Start sshd by default
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
