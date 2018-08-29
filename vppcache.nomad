@@ -3,7 +3,7 @@ job "autocachebuild" {
 
   type = "batch"
   periodic {
-    cron  = "15 7 * * 1,3,5 *"
+    cron  = "15 7 * * 1 *"
     prohibit_overlap = true
     time_zone = "UTC"
   }
