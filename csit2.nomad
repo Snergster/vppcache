@@ -12,6 +12,7 @@ job "csit" {
     task "ubuntu18" {
       driver = "docker"
       config {
+        network_mode = "host"
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"
           ]
