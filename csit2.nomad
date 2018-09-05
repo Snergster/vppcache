@@ -1,6 +1,10 @@
 job "csit" {
   datacenters = ["yul1"]
   type = "system"
+  constraint {
+    attribute = "${node.class}"
+    value     = "csit"
+  }
   group "csit" {
     restart {
       interval = "1m"
