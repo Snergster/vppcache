@@ -10,7 +10,7 @@ RUN curl -L https://packagecloud.io/fdio/master/gpgkey |sudo apt-key add -
 
 RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms 
 RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
-RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /home/jenkins && mkdir -p /run/shm
-
+#RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /home/jenkins && mkdir -p /run/shm
+RUN mkdir -p /w/workspace && mkdir -p /home/jenkins && mkdir -p /run/shm
 #RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
 #RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
