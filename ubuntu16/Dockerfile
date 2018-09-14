@@ -1,6 +1,6 @@
 FROM snergster/vpp-ubuntu16
 
-ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
+#ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
 ADD files/98fd.io.list /etc/apt/sources.list.d/98fd.io.list
 
 ADD files/sshconfig /root/.ssh/config
