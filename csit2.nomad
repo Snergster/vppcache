@@ -25,8 +25,8 @@ job "csit" {
         privileged = true
       }
       resources {
-        cpu    = 100 # 100 MHz
-        memory = 128 # 128 MB
+#        cpu    = 100 # 100 MHz
+#        memory = 128 # 128 MB
         network {
           mbits = 10
           port "ssh" {
