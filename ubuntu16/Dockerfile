@@ -8,8 +8,8 @@ ADD files/badkey /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 RUN curl -L https://packagecloud.io/fdio/master/gpgkey |sudo apt-key add -
 
-RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms 
-RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
+#RUN apt update && apt install -y vpp-dpdk-dev vpp-dpdk-dkms 
+#RUN mkdir -p /w/dpdk && cd /w/dpdk; apt-get download vpp-dpdk-dkms
 #RUN mkdir -p /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && mkdir -p /home/jenkins && mkdir -p /run/shm
 RUN mkdir -p /w/workspace && mkdir -p /home/jenkins && mkdir -p /run/shm && rm -rf /w/workspace/vpp-*
 #RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
