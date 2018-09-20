@@ -1,25 +1,39 @@
-job "csitshim" {
+job "csit" {
   datacenters = ["yul1"]
   type = "system"
-  group "csitshim" {
+  constraint {
+    attribute = "${node.class}"
+    value     = "csit"
+  }
+  group "csit" {
+    restart {
+      interval = "1m"
+      attempts = 3
+      delay    = "15s"
+      mode     = "delay"
+            }
     count = 1
-    task "csitshim" {
-      driver = "raw_exec"
+    task "ubuntu18" {
+      driver = "docker"
       config {
-        command = "docker"
-        args = ["run","-i","-P","-p","6022:22","-p","8080:8080","-v","/var/run/docker.sock:/var/run/docker.sock","registry.fdiopoc.net/vpp/ubuntu16thin"]
-      }
-      constraint {
-        attribute = "${node.class}"
-        value     = "master"
+        network_mode = "host"
+        pid_mode = "host"
+        volumes = [
+          "/var/run/docker.sock:/var/run/docker.sock"
+          ]
+        image = "snergster/csit-shim"
+        privileged = true
       }
       resources {
-        cpu    = 100 # 100 MHz
-        memory = 128 # 128 MB
+#        cpu    = 100 # 100 MHz
+#        memory = 128 # 128 MB
         network {
           mbits = 10
           port "ssh" {
               static = 6022
+          }
+          port "ssh2" {
+              static = 6023
           }
         }
       }
