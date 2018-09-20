@@ -1,5 +1,9 @@
 FROM snergster/vpp-ubuntu18:latest
 
+ADD files/sshconfig /root/.ssh/config
+ADD files/badkey /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+
 # RUN curl -L https://packagecloud.io/fdio/master/gpgkey |sudo apt-key add -
 # ADD files/99fd.io.list /etc/apt/sources.list.d/99fd.io.list
 # ADD files/98fd.io.list /etc/apt/sources.list.d/98fd.io.list
