@@ -14,5 +14,6 @@ FROM registry.fdiopoc.net/vpp/ubuntu16
 #RUN mkdir -p /w/workspace && mkdir -p /home/jenkins && mkdir -p /run/shm && rm -rf /w/workspace/vpp-*
 #RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master-ubuntu1604 && cd /w/workspace/vpp-test-poc-verify-master-ubuntu1604; make UNATTENDED=yes install-dep && make UNATTENDED=yes test-dep && rm -rf /w/workspace/vpp-test-poc-verify-master-ubuntu1604
 #RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
-RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins
+
+RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w
 USER jenkins
