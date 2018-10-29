@@ -16,4 +16,5 @@ FROM registry.fdiopoc.net/vpp/ubuntu16
 #RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
 
 RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w
+ADD files/jenkins /etc/sudoers.d/jenkins
 USER jenkins
