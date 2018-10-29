@@ -17,7 +17,7 @@ FROM registry.fdiopoc.net/vpp/ubuntu16
 
 RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp
 ADD files/jenkins /etc/sudoers.d/jenkins
-ADD files/bash /root/.bash_profile
-ADD files/bash /home/jenkins/.bash_profile
+#ADD files/bash /root/.bash_profile
+#ADD files/bash /home/jenkins/.bash_profile
 ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
 USER jenkins
