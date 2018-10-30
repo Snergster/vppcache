@@ -24,3 +24,7 @@ RUN chmod 600 /root/.ssh/id_rsa
 # RUN dpkg -l | grep default-j
 
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-verify-master-ubuntu1804 && cd /w/workspace/vpp-verify-master-ubuntu1804; make UNATTENDED=yes install-dep && rm -rf /w/workspace/vpp-verify-master-ubuntu1804
+#jenkins bits
+RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp
+ADD files/jenkins /etc/sudoers.d/jenkins
+ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}

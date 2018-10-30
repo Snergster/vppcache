@@ -11,6 +11,7 @@ ENV MAKE_PARALLEL_FLAGS -j 4
 ENV DOCKER_TEST=True
 ENV DPDK_DOWNLOAD_DIR=/w/Downloads
 ENV VPP_ZOMBIE_NOCHECK=1
+ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
 
 RUN apt-get update &&apt-get install -y -qq \
         bash \
@@ -195,6 +196,9 @@ RUN pip install scapy
 RUN pip install psutil
 RUN git clone https://gerrit.fd.io/r/vpp /workspace/ubuntu16 && cd /workspace/ubuntu16; make UNATTENDED=yes install-dep && rm -rf /workspace/ubuntu16 && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
+#jenkins bits
+RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp
+ADD files/jenkins /etc/sudoers.d/jenkins
 
 
 
