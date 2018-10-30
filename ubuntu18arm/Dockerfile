@@ -123,7 +123,6 @@ RUN apt-get -q update && \
         libbison-dev \
         libconfuse-common \
         libconfuse-dev \
-        libconfuse0 \
         libcroco3 \
         libexpat1-dev \
         libganglia1 \
@@ -141,7 +140,6 @@ RUN apt-get -q update && \
         libssl-doc \
         libsys-hostname-long-perl \
         libtool \
-        libunistring0 \
         m4 \
         pkg-config \
         po-debconf \
