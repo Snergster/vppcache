@@ -24,4 +24,4 @@ FROM registry.fdiopoc.net/vpp/ubuntu16
 #ADD files/cmake-3.11.0-Linux-x86_64.tar.gz /tmp/cmake.tar.gz
 RUN apt-get purge cmake -y
 RUN wget -O /tmp/cmake.tar.gz https://cmake.org/files/v3.12/cmake-3.12.4-Linux-x86_64.tar.gz
-RUN tar -xvf /tmp/cmake.tar.gz && cp -r /tmp/cmake-3.12.4-Linux-x86_64/bin /usr/ && cp -r /tmp/cmake-3.12.4-Linux-x86_64/share /usr/ && sudo cp -r /tmp/cmake-3.12.4-Linux-x86_64/doc /usr/share/ && sudo cp -r /tmp/cmake-3.12.4-Linux-x86_64/man /usr/share/
+RUN tar -xvf /tmp/cmake.tar.gz && cp -r /cmake-3.12.4-Linux-x86_64/bin /usr/ && cp -r /cmake-3.12.4-Linux-x86_64/share /usr/ && sudo cp -r /cmake-3.12.4-Linux-x86_64/doc /usr/share/ && sudo cp -r /cmake-3.12.4-Linux-x86_64/man /usr/share/ && rm -rf /cmake-3.12.4-Linux-x86_64
