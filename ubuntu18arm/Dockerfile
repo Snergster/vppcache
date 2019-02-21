@@ -112,6 +112,7 @@ RUN apt-get -q update && \
         dkms \
         ed \
         exuberant-ctags \
+        gfortran \
         gettext \
         gettext-base \
         intltool-debian \
@@ -120,6 +121,7 @@ RUN apt-get -q update && \
         libapr1 \
         libapr1-dev \
         libasprintf-dev \
+        libatlas-base-dev \
         libbison-dev \
         libconfuse-common \
         libconfuse-dev \
@@ -132,6 +134,7 @@ RUN apt-get -q update && \
         libgettextpo0 \
         libltdl-dev \
         libmail-sendmail-perl \
+        libpcap-dev \
         libpython-dev \
         libpython2.7-dev \
         libsctp-dev \
@@ -188,7 +191,27 @@ RUN wget -O /w/Downloads/v0.49.tar.gz http://github.com/01org/intel-ipsec-mb/arc
 RUN gem install rake
 RUN gem install package_cloud
 RUN gem install facter
-RUN pip install scapy
+
+RUN pip install docopt==0.6.2 \
+        ecdsa==0.13 \
+        enum34==1.1.2 \
+        ipaddress==1.0.16 \
+        paramiko==1.16.0 \
+        pexpect==4.6.0 \
+        pycrypto==2.6.1 \
+        pykwalify==1.5.0 \
+        pypcap==1.1.5 \
+        python-dateutil==2.4.2 \
+        PyYAML==3.11 \
+        requests==2.9.1 \
+        robotframework==2.9.2 \
+        scapy==2.3.1 \
+        scp==0.10.2 \
+        six==1.12.0 \
+        dill==0.2.8.2 \
+        numpy==1.14.5
+
+RUN pip install scipy==1.1.0
 RUN pip install psutil
 RUN git clone https://gerrit.fd.io/r/vpp /workspace/ubuntu16 && cd /workspace/ubuntu16; make UNATTENDED=yes install-dep && rm -rf /workspace/ubuntu16 && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
