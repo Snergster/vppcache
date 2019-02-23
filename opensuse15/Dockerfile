@@ -9,7 +9,7 @@ LABEL Version="2.0"
 # Setup the environment
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN crudini --set /usr/lib/os-release '' ID '"opensuse-leap"'
+RUN crudini --set /usr/lib/os-release '' ID '"opensuse"'
 
 #
 RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/opensuse && cd /w/workspace/opensuse; make install-dep && cd /w; rm -rf /w/workspace/opensuse
