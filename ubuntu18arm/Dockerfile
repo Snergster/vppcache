@@ -1,15 +1,16 @@
 FROM arm64v8/ubuntu:18.04
 MAINTAINER Ed Kern <ejk@cisco.com>
-LABEL Description="arm VPP ubuntu 18 baseline" 
-LABEL Vendor="cisco.com" 
+LABEL Description="arm VPP ubuntu 18 baseline"
+LABEL Vendor="arm.com"
 LABEL Version="1.0"
-
 
 # Setup the environment
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DOCKER_TEST=True
 ENV DPDK_DOWNLOAD_DIR=/w/Downloads
 ENV VPP_ZOMBIE_NOCHECK=1
+
+ADD files/sshconfig /root/.ssh/config
 
 RUN apt-get update &&apt-get install -y -qq \
         bash \
@@ -216,7 +217,7 @@ RUN pip install psutil
 RUN git clone https://gerrit.fd.io/r/vpp /workspace/ubuntu16 && cd /workspace/ubuntu16; make UNATTENDED=yes install-dep && rm -rf /workspace/ubuntu16 && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
 #jenkins bits
-RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache 
+RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache
 ADD files/jenkins /etc/sudoers.d/jenkins
 ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
 
