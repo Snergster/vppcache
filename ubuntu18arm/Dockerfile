@@ -188,11 +188,11 @@ RUN wget -O /w/Downloads/dpdk-17.11.tar.xz http://fast.dpdk.org/rel/dpdk-17.11.t
 RUN wget -O /w/Downloads/v0.48.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.48.tar.gz
 RUN wget -O /w/Downloads/v0.49.tar.gz http://github.com/01org/intel-ipsec-mb/archive/v0.49.tar.gz
 
-
+RUN curl -L https://packagecloud.io/fdio/master/gpgkey |sudo apt-key add -
 RUN gem install rake
 RUN gem install package_cloud
 RUN gem install facter
-
+RUN curl -s https://packagecloud.io/install/repositories/fdio/master/script.deb.sh | sudo bash
 RUN pip install docopt==0.6.2 \
         ecdsa==0.13 \
         enum34==1.1.2 \
