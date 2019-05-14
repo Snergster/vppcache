@@ -160,10 +160,13 @@ RUN apt-get -q update && \
         libboost-all-dev \
         ruby-dev \
         iperf3 \
+        g++-8 \
+        gcc-8 \
         && rm -rf /var/lib/apt/lists/*
 
 #Repoint clang
 RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-5.0 1000 && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 1000
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7 && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 # Configure locales
 RUN locale-gen en_US.UTF-8 && \
