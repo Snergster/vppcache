@@ -29,4 +29,5 @@ RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-verify-master-ubuntu18
 RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp
 ADD files/jenkins /etc/sudoers.d/jenkins
 ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 800 --slave /usr/bin/g++ g++ /usr/bin/g++-7 && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 700 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
