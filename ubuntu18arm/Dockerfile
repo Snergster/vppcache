@@ -162,6 +162,7 @@ RUN apt-get -q update && \
         iperf3 \
         g++-8 \
         gcc-8 \
+        sshpass \
         && rm -rf /var/lib/apt/lists/*
 
 #Repoint clang
