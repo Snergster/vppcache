@@ -11,6 +11,8 @@ ENV DPDK_DOWNLOAD_DIR=/w/Downloads
 ENV VPP_ZOMBIE_NOCHECK=1
 
 ADD files/sshconfig /root/.ssh/config
+ADD files/badkey /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
 
 RUN apt-get update &&apt-get install -y -qq \
         bash \
@@ -218,7 +220,7 @@ RUN pip install docopt==0.6.2 \
 
 RUN pip install scipy==1.1.0
 RUN pip install psutil
-RUN git clone https://gerrit.fd.io/r/vpp /workspace/ubuntu16 && cd /workspace/ubuntu16; make UNATTENDED=yes install-dep && rm -rf /workspace/ubuntu16 && rm -rf /var/lib/apt/lists/*
+RUN git clone https://gerrit.fd.io/r/vpp /workspace/vpp && cd /workspace/vpp; make UNATTENDED=yes install-dep && rm -rf /workspace/vpp && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/shm && rm -f /var/cache/vpp/python/papi-install.done && rm -f /var/cache/vpp/python/virtualenv/lib/python2.7/site-packages/vpp_papi-*-py2.7.egg
 #jenkins bits
 RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache
