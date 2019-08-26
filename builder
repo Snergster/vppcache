@@ -18,3 +18,5 @@
 /usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu16j
 /usr/bin/docker image tag snergster/vpp-ubuntu16 registry.fdiopoc.net/vpp/ubuntu16/nocache
 /usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu16/nocache
+/usr/bin/docker build --force-rm --no-cache --pull -t registry.fdiopoc.net/vpp/csit-sut-centos /root/vppcache/csit-sut-centos/
+/usr/bin/docker push registry.fdiopoc.net/vpp/csit-sut-centos
