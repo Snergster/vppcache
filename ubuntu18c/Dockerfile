@@ -16,4 +16,4 @@ FROM registry.fdiopoc.net/vpp/ubuntu18
 #ADD files/jenkins /etc/sudoers.d/jenkins
 #ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
 #RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 800 --slave /usr/bin/g++ g++ /usr/bin/g++-7 && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 700 --slave /usr/bin/g++ g++ /usr/bin/g++-8
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && dpkg -i google-chrome-stable_current_amd64.deb && apt-get install -f && rm google-chrome-stable_current_amd64.deb
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && dpkg -i google-chrome-stable_current_amd64.deb; apt-get install -f -y && rm google-chrome-stable_current_amd64.deb
