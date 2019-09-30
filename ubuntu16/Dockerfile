@@ -17,7 +17,7 @@ RUN git clone https://gerrit.fd.io/r/vpp /w/workspace/vpp-test-poc-verify-master
 #jenkins bits
 #RUN export SET_JDK_VERSION='8';/usr/local/bin/lf-update-java-alternatives
 
-RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp && mkdir /var/log/sysstat && chmod 777 /var/log/sysstat
+RUN rm -rf /home/jenkins && useradd -ms /bin/bash jenkins && chown -R jenkins /w && chown -R jenkins /var/ccache && chown -R jenkins /var/cache/vpp && mkdir -p /var/log/sysstat && chmod 777 /var/log/sysstat
 ADD files/jenkins /etc/sudoers.d/jenkins
 ENV PATH=/root/.local/bin:/home/jenkins/.local/bin:${PATH}
 RUN curl -s https://packagecloud.io/install/repositories/fdio/master/script.deb.sh | sudo bash
