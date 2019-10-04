@@ -1,4 +1,4 @@
-FROM snergster/csit-sut-centos:latest
+FROM registry.fdiopoc.net/vpp/centos:latest
 
 ADD files/sshconfig /root/.ssh/config
 ADD files/badkey /root/.ssh/id_rsa
