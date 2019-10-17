@@ -1,0 +1,12 @@
+#!/bin/bash
+#/usr/bin/docker pull snergster/vpp-ubuntu16
+#/usr/bin/docker build --force-rm --no-cache --pull -t registry.fdiopoc.net/vpp/ubuntu16arm /root/vppcache/ubuntu16arm/
+#/usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu16arm
+/usr/bin/docker build --force-rm --no-cache --pull -t snergster/vpp-arm-ubuntu18 /root/vpp-arm-ubuntu18/
+#/usr/bin/docker push registry.fdiopoc.net/vpp/ubuntu18arm
+/usr/bin/docker build --force-rm --no-cache --pull -t snergster/csit-arm-shim /root/csit-shim/
+/usr/bin/docker build --force-rm --no-cache --pull -t snergster/csit-arm-sut /root/csit-sut/
+#
+/usr/bin/docker push snergster/vpp-arm-ubuntu18
+/usr/bin/docker push snergster/vpp-arm-shim
+/usr/bin/docker push snergster/vpp-arm-sut
