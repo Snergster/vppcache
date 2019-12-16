@@ -1,4 +1,4 @@
-job "csit" {
+job "csitx86" {
   datacenters = ["yul1"]
   type = "system"
   constraint {
