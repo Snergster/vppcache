@@ -5,7 +5,7 @@ job "csitx86" {
     attribute = "${node.class}"
     value     = "csit"
   }
-  group "csit" {
+  group "csitx86" {
     restart {
       interval = "1m"
       attempts = 3
@@ -13,7 +13,7 @@ job "csitx86" {
       mode     = "delay"
             }
     count = 1
-    task "ubuntu18" {
+    task "ubuntu18x86" {
       driver = "docker"
       config {
         network_mode = "host"
