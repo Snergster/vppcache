@@ -37,16 +37,6 @@ job "csitx86" {
           }
         }
       }
-      service {
-        name = "csitx86"
-        tags = [ "csitx86" ]
-        port = "ssh"
-        check {
-          type     = "tcp"
-          interval = "10s"
-          timeout  = "2s"
-        }
-      }
     }
   }
 }

@@ -37,16 +37,6 @@ job "csit" {
           }
         }
       }
-      service {
-        name = "csit"
-        tags = [ "csit" ]
-        port = "ssh"
-        check {
-          type     = "tcp"
-          interval = "10s"
-          timeout  = "2s"
-        }
-      }
     }
   }
 }
