@@ -38,8 +38,8 @@ job "csitx86" {
         }
       }
       service {
-        name = "csit"
-        tags = [ "csit" ]
+        name = "csitx86"
+        tags = [ "csitx86" ]
         port = "ssh"
         check {
           type     = "tcp"
